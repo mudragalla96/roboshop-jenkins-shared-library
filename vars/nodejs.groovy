@@ -4,7 +4,7 @@ def call() {
         sh 'env'
         common.codeQuality()
 
-        if (branch == main || tag ==~ "*") {
+        if ( branch == main || tag ==~ "*" ) {
             stage('Style Checks') {
                 echo 'Style Checks'
             }

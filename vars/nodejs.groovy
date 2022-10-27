@@ -1,14 +1,14 @@
 def call() {
     node {
 
-        if (! env.TAG_NAME) {
-         env.TAG_NAME = ""
-        }
+//        if (! env.TAG_NAME) {
+//         env.TAG_NAME = ""
+//        }
 
         sh 'env'
         common.codeQuality()
 
-        if ( BRANCH_NAME == main || tag ==~ "*") {
+        if ( branch == main || tag ==~ "*") {
             stage('Style Checks') {
                 echo 'Style Checks'
             }

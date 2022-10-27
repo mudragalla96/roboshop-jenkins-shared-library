@@ -1,17 +1,20 @@
 def call() {
     node {
 
+        if (! env.TAG_NAME) {
+         env.TAG_NAME = ""
+        }
 
-          common.codeQuality()
+        sh 'env'
+        common.codeQuality()
 
-//            stage('Style Checks') {
-//                when {
-//                    branch 'main'
-//                }
-//                steps {
-//                    echo 'Style Checks'
-//                }
-//            }
+        if ( BRANCH_NAME == main || TAG_NAME ==~ ".*") {
+            stage('Style Checks') {
+                echo 'Style Checks'
+            }
+        }
+
+
 //
 //            stage('Unit Tests') {
 //                when {
@@ -48,4 +51,4 @@ def call() {
 //
 //    }
 //
-//}
+//   }

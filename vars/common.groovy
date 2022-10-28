@@ -1,11 +1,12 @@
 def codeQuality() {
     stage('Code Quality') {
         echo 'Code Quality'
+        sh 'env'
     }
 }
 
 def codeChecks() {
-    if ( BRANCH_NAME == "main" || TAG_NAME ==~ ".*" ) {
+    if ( env.BRANCH_NAME == "main" || TAG_NAME ==~ ".*" ) {
 
         stage('Style Checks') {
             echo 'Style Checks'
@@ -20,9 +21,8 @@ def codeChecks() {
     }
 }
 
-
 def artifacts() {
-    if (  TAG_NAME ==~ ".*" ) {
+    if ( env.TAG_NAME ==~ ".*" ) {
 
       stage('Download Dependencies') {
           echo 'Download Dependencies'

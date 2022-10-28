@@ -5,7 +5,7 @@ def codeQuality() {
           sonar-scanner -Dsonar.host.url=http://172.31.6.171:9000 -Dsonar.login=${sonarUser} -Dsonar.password=${sonarPass} -Dsonar.projectKey=${COMPONENT}
         '''
     }
- }
+  }
 }
 
 def codeChecks() {

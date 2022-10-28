@@ -4,7 +4,7 @@ def codeQuality() {
     }
 }
 
-def codceChecks() {
+def codeChecks() {
     if ( BRANCH_NAME == "main" || TAG_NAME ==~ ".*" ) {
 
         stage('Style Checks') {

@@ -2,15 +2,12 @@ def call() {
   node {
 
       common.codeQuality()
+      if ( branch == "main" || tag ==~ "*" ) {
+        stage('Style Checks') {
+            echo 'Style Checks'
+        }
+      }
 
-//      stage('Style Checks') {
-//          when {
-//              branch 'main'
-//                }
-//          steps {
-//              echo 'Style Checks'
-//                }
-//            }
 //
 //            stage('Unit Tests') {
 //                when {
